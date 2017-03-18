@@ -1,0 +1,24 @@
+<br>
+<div class="row">
+  <div class="col-md-3">
+<a href="" ng-click="StockManagerCtrl.popupResult()"><img class="ShoppingCar" src="images/Shopping-Cart.png"> change your cart</a>
+</div>
+<div class="col-md-3">
+</div>
+<div class="col-md-3">
+<button class="btn btn-primary" ng-click="StockManagerCtrl.popupBill()">Finish and pay ({{totalToPay | number:2}} €)</button>
+</div>
+<div class="col-md-3">
+  <h3>{{cookiesCounter}} Products in your cart</h3>
+</div>
+</div>
+<br>
+<div class="thumbnail col-md-4" ng-repeat="p in catalogShow">
+  <div class="caption">
+    <img src="images/{{p.id}}.JPG" alt="" class="img-responsive">
+    <h3>{{p.name}}</h3><br>
+    <strong>{{p.price | number:2}} €</strong><br>
+    <span ng-show="p.inOffer === true">In offer</span><br>
+    <button class="btn btn-info" ng-click="StockManagerCtrl.createCookie($index)">Add to the shopping cart</button>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="row">
+  <div ng-if="productsArray.length>0">
+    <h1>Products in your shopping cart:</h1>
+    Entry Date: {{productsArray[0].getEntryDate() | date : "dd.MM.y"}}
+    <br/> Time: {{productsArray[0].getEntryDate() | date : "h:mm a"}}<br/>
+    Number of Products: {{productsArray.length}}<br/>
+  </div>
+  <div ng-if="productsArray.length==0">
+    <h3>Your shopping cart is empty</h3>
+  </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Product name</th>
+                <th>Price</th>
+                <th>In Offer</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="p in productsArray track by $index">
+                <td>{{p.getName()}}</td>
+                <!-- TODO Product Type no va bein y falta total productos-->
+                <td>{{p.getPrice() | number:2}} €</td>
+                <td>{{(p.getInOffer() == true) ? "YES" : "NO"}}</td>
+                <td>
+                    <button class="btn btn-danger" ng-click="PopUpCtrl.deleteCookies(p.getId())">
+                        X
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <th>Total price:</th>
+                <th>{{totalPrice| number:2}} €</th>
+                <td></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <button class="btn btn-default pull-right" onclick="window.opener.location.reload();window.close();">Close</button>
+
+</div>

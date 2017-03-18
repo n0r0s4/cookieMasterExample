@@ -1,0 +1,33 @@
+<div class="row">
+    <h1>Products in your shopping cart:</h1>
+    Entry Date: {{productsArray[0].getEntryDate() | date : "dd.MM.y"}}
+    <br/> Time: {{productsArray[0].getEntryDate() | date : "h:mm a"}}<br/>
+    Number of Products: {{productsArray.length}}<br/>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Product name</th>
+                <th>Price</th>
+                <th>In Offer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="p in productsArray">
+                <td>{{p.getName()}}</td>
+                <!-- TODO Product Type no va bein y falta total productos-->
+                <td>{{p.getPrice() | number:2}} €</td>
+                <td>{{(p.getInOffer() == true) ? "YES" : "NO"}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <th>Total price:</th>
+                <th>{{totalPrice| number:2}} €</th>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="btn btn-default pull-right" ng-click="PopUpBillCtrl.print()">Print</button>
+    <button class="btn btn-default pull-right" ng-click="PopUpBillCtrl.close()">Close</button>
+
+</div>

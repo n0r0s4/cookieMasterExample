@@ -1,0 +1,32 @@
+/* * {  clear: both; margin: 5px; padding: 5px;  } */ 
+
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.product{
+    float: left;
+    width: 15em;
+    height: 20em;
+    background-color: gainsboro;
+    margin: 1em;
+    text-align: center;
+}
+
+.n-products{
+    width: 30%;
+    text-align: center;
+}
+
+.ShoppingCar{
+    width: 5em;
+    height: 5em;
+    color: red;
+}
+body{
+    background-color: red;
+}
